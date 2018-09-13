@@ -35,7 +35,7 @@
         </div>
       </li>
     </ul>
-    <div @touchmove.prevent="preventTouchMove($event)" class="swipe-container" v-if="slideShow" @click="slideShowClicked($event)">
+    <div class="swipe-container" v-if="slideShow" @click="slideShowClicked($event)">
       <i class="el-icon-close"></i>
       <swiper :options="swiperOption">
         <swiper-slide class="swiper-slide-inner" v-for="(img, index) in painting.imgUrl" :key="index">
@@ -83,9 +83,6 @@ export default {
     }
   },
   methods: {
-    preventTouchMove(e) {
-      //
-    },
     getAllPainting() {
       this.$http
         .get(this.serverUrl + '/allpainting')

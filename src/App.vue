@@ -24,7 +24,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #555;
-  margin-top: 50px;
+  margin-top: 0;
 }
 * {
   box-sizing: border-box;
@@ -45,4 +45,10 @@ li {
     width: 300px !important;
   }
 }
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>

@@ -19,12 +19,10 @@ export default {
 
 <style scoped>
 header {
-  padding: 10px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 header img {
-  width: 55%;
-  max-width: 500px;
+  width: 100%;
 }
 </style>
