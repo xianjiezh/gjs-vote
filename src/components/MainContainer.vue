@@ -2,6 +2,7 @@
   <main>
     <ul v-loading="loading">
       <el-dialog class="el-dialog-wrapper" :title="singlePainting.worksName" :visible.sync="dialogVisible":before-close="handleClose">
+        <div class="intro">{{showIntro}}</div>
         <el-rate @change="rateChange" :allow-half="true" v-model="showRate" text-color="#ff9900">
         </el-rate>
         <span slot="footer" class="dialog-footer">
@@ -79,7 +80,8 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         }
-      }
+      },
+      showIntro: ''
     }
   },
   methods: {
@@ -115,6 +117,8 @@ export default {
       this.painting = painting
     },
     clickToRate(painting) {
+      this.showIntro = painting.description
+      log(painting.description)
       if (!painting.isRated) {
         this.singlePainting = painting
         this.dialogVisible = true
@@ -235,7 +239,12 @@ main ul {
 .swipe-container img {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
-
+.intro {
+  margin-top: -18px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+  text-indent: 1px;
+}
 .rate-people {
   text-align: left;
   margin-top: 0px;
