@@ -25,6 +25,7 @@ export default {
   text-align: center;
   color: #555;
   margin-top: 0;
+  padding-bottom: 100px;
 }
 * {
   box-sizing: border-box;
@@ -49,6 +50,10 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
-
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
 </style>

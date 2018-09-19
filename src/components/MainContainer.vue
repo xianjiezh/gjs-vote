@@ -36,9 +36,9 @@
         </div>
       </li>
     </ul>
-    <div class="swipe-container" v-if="slideShow" @click="slideShowClicked($event)">
+    <div class="swipe-container2" v-if="slideShow" @click="slideShowClicked($event)">
       <i class="el-icon-close"></i>
-      <swiper :options="swiperOption">
+      <swiper :options="swiperOption" class="swiper-inner">
         <swiper-slide class="swiper-slide-inner" v-for="(img, index) in painting.imgUrl" :key="index">
           <img :src="img" alt="图片详情" style="margin-top: 20px;">
         </swiper-slide>
@@ -209,6 +209,10 @@ main ul {
   font-size: 30px;
   z-index: 21;
 }
+.swiper-inner {
+  display: flex;
+  align-items: center;
+}
 .swiper-button-next {
   display: flex;
   justify-content: center;
@@ -225,7 +229,7 @@ main ul {
   color: #bababa;
   cursor: pointer;
 }
-.swipe-container {
+.swipe-container2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -233,11 +237,14 @@ main ul {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.76);
   z-index: 10;
 }
 .swipe-container img {
+  border: 1px solid red;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  max-height: 80%;
 }
 .intro {
   margin-top: -18px;
@@ -278,7 +285,9 @@ main ul li .img-container img {
   padding: 6px 12px;
   color: #fff;
 }
-
+.swiper-slide-inner {
+  overflow: hidden;
+}
 @media screen and (max-width: 435px) {
   .rate-wrapper {
     display: flex;
@@ -303,9 +312,6 @@ main ul li .img-container img {
     font-size: 14px;
     margin-top: -2px;
   }
-  .swiper-slide-inner {
-    margin-top: -20px;
-  }
   .authorName span {
     font-size: 16px;
   }
@@ -313,7 +319,7 @@ main ul li .img-container img {
     width: 76%;
   }
   main ul li {
-    width: 100%;
+    width: 88%;
     margin-right: auto;
     margin-left: auto;
     height: 340px;
@@ -321,7 +327,8 @@ main ul li .img-container img {
 }
 @media screen and (min-width: 436px) {
   .swiper-slide-inner img {
-    width: 62%;
+    margin-top: 60px;
+    width: 60%;
   }
   .authorName span {
     font-size: 16px;
