@@ -91,10 +91,12 @@ export default {
         .then(response => {
           this.loading = false
           if (response.status == 200) {
-            this.paintings = response.data.map((value, index) => {
+            const rowPainting = response.data.map((value, index) => {
               value.imgUrl = JSON.parse(value.imgUrl)
               return value
             })
+            
+            this.paintings = rowPainting.reverse()
           } else {
             this.loading = false
           }
@@ -298,7 +300,7 @@ main ul li .img-container img {
     cursor: pointer;
   }
   .swiper-slide-inner img {
-    width: 96%;
+    width: 86%;
   }
   main ul li .img-container {
     height: 210px;
