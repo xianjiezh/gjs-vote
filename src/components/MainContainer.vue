@@ -1,7 +1,7 @@
 <template>
   <main>
     <ul v-loading="loading">
-      <el-dialog class="el-dialog-wrapper" :title="singlePainting.worksName" :visible.sync="dialogVisible":before-close="handleClose">
+      <el-dialog class="el-dialog-wrapper" :title="singlePainting.worksName" :visible.sync="dialogVisible" :before-close="handleClose">
         <div class="intro">{{showIntro}}</div>
         <el-rate @change="rateChange" :allow-half="true" v-model="showRate" text-color="#ff9900">
         </el-rate>
@@ -148,6 +148,12 @@ export default {
       const data = {
         id,
         rateValue
+      }
+      const date = new Date()
+      const unixTime = date.getTime()
+      if (unixTime > 1538842000000) {
+        this.warningMessage('已经过了投票期限啦')
+        return
       }
       this.$http.post(this.serverUrl + '/rate', data).then(
         res => {
